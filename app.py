@@ -28,7 +28,6 @@ def verificacao(login, senha):
 
 
 class Pessoa(Resource):
-    @auth.login_required
     def get(self, nome):
         pessoa = Pessoas.query.filter_by(nome=nome).first()
         try:
@@ -72,6 +71,7 @@ class Pessoa(Resource):
 
 
 class ListaPessoas(Resource):
+    @auth.login_required
     def get(self):
         pessoas = Pessoas.query.all()
         response = [{'id': i.id, 'nome': i.nome, 'idade': i.idade} for i in pessoas]

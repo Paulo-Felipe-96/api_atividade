@@ -64,6 +64,25 @@ class ProgramadorHabilidades(Base):
         db_sesson.commit()
 
 
+class Usuarios(Base):
+    __tablename__ = 'usuarios'
+    id = Column(Integer, primary_key=True)
+    login = Column(String(20), unique=True)
+    senha = Column(String(20), unique=True)
+
+    def __repr__(self):
+        return f'login: {self.login}' \
+               f'senha: {self.senha}'
+
+    def save(self):
+        db_sesson.add(self)
+        db_sesson.commit()
+
+    def delete(self):
+        db_sesson.delete(self)
+        db_sesson.commit()
+
+
 def init_db():
     Base.metadata.create_all(bind=engine)
 

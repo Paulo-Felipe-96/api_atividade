@@ -41,5 +41,4 @@ if __name__ == '__main__':
     # consulta_pessoas()
     # excluir_pessoa()
     # insere_pessoas()
-    # consulta_pessoas()
     consulta_usuarios()
